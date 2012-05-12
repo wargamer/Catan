@@ -5,11 +5,6 @@ using System.Text;
 
 namespace catan
 {
-
-    class Base { }
-
-    class BA : Base { }
-    class BB : Base { }
     class Game
     {
         List<Structure> Structures = new List<Structure>();
@@ -17,14 +12,15 @@ namespace catan
 
         public Game()
         {
-            var bases = new List<Base> { (Base)new BA(), (Base)new BB() };
-
-            foreach (var b in bases)
-                if (b is BB)
-                    ;
-            var bbs = bases.OfType<BB>();
-
-
+            int NumberOfTiles = 19;
+            var NumberHeap = new Heap<int>(NumberOfTiles) { 2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 8, 9, 9, 10, 10, 11, 11, 12 };
+            var LandTileHeap = new Heap<Tile>(NumberOfTiles);
+            LandTileHeap.AddMultiple(3, TileType.Ore);
+            LandTileHeap.AddMultiple(3, TileType.Brick);
+            LandTileHeap.AddMultiple(4, TileType.Grain);
+            LandTileHeap.AddMultiple(4, TileType.Lumber);
+            LandTileHeap.AddMultiple(4, TileType.Wool);
+            LandTileHeap.Add(new Tile(TileType.Desert));
 
             Board.Tiles.Add(new Tile(TileType.Water, 0));
             List<Tile> allTiles = new List<Tile>();
@@ -59,7 +55,7 @@ namespace catan
 
             foreach (var combo in luckyCombos)
                 if (combo.selectedTileType == TileType.Water)
-                    return;
+                    ;//return;
         }
     }
 }

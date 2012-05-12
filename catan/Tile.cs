@@ -16,16 +16,32 @@ namespace catan
             id = newId;
         }
 
-        public void addNeighbor(Tile t)
+        public Tile(TileType type)
         {
-            Neighbors.Add(t);
+            TileType = type;
+            id = newId;
+        }
+
+        public void addNeighbor(Tile t, NeighborLocation loc)
+        {
+            Neighbors.Add(loc, t);
         }
 
         public int Number;
-        public TileType TileType;
+        public readonly TileType TileType;
         public readonly int id;
-        public readonly List<Tile> Neighbors = new List<Tile>();
+        public readonly Dictionary<NeighborLocation, Tile> Neighbors = new Dictionary<NeighborLocation, Tile>();
         private static int _idCounter = 0;
         private static int newId { get { return _idCounter++;}}
+    }
+
+    enum NeighborLocation
+    {
+        Top,
+        TopRight,
+        TopLeft,
+        Bottom,
+        BottomRight,
+        BottomLeft
     }
 }
