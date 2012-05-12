@@ -24,7 +24,13 @@ namespace catan
 
         public void addNeighbor(Tile t, NeighborLocation loc)
         {
-            Neighbors.Add(loc, t);
+            if (!Neighbors.ContainsKey(loc))
+                Neighbors.Add(loc, t);
+        }
+
+        public Boolean hasNeighbor(NeighborLocation loc)
+        {
+            return Neighbors.ContainsKey(loc);
         }
 
         public int Number;
@@ -37,11 +43,11 @@ namespace catan
 
     enum NeighborLocation
     {
-        Top,
-        TopRight,
-        BottomRight,
-        Bottom,
-        BottomLeft,
-        TopLeft,
+        Top = 0,
+        TopRight =1,
+        BottomRight =2,
+        Bottom =3,
+        BottomLeft =4,
+        TopLeft =5,
     }
 }

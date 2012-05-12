@@ -23,6 +23,7 @@ namespace catan
         {
             InitializeComponent();
             Game g = new Game();
+         //   g.BuildBoard();
         }
     }
 }
