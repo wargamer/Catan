@@ -9,7 +9,7 @@ namespace catan
             : base(capacity)
         { }
 
-        public void AddMultiple(int numberOfElements, params object[] args)
+        public void Add(int numberOfElements, params object[] args)
         {
             for (int i = 0; i < numberOfElements; ++i)
                 Add((T)System.Activator.CreateInstance(typeof(T), args));

@@ -39,9 +39,9 @@ namespace catan
     {
         Top,
         TopRight,
-        TopLeft,
-        Bottom,
         BottomRight,
-        BottomLeft
+        Bottom,
+        BottomLeft,
+        TopLeft,
     }
 }

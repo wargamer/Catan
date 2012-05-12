@@ -15,12 +15,12 @@ namespace catan
             int NumberOfTiles = 19;
             var NumberHeap = new Heap<int>(NumberOfTiles) { 2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 8, 9, 9, 10, 10, 11, 11, 12 };
             var LandTileHeap = new Heap<Tile>(NumberOfTiles);
-            LandTileHeap.AddMultiple(3, TileType.Ore);
-            LandTileHeap.AddMultiple(3, TileType.Brick);
-            LandTileHeap.AddMultiple(4, TileType.Grain);
-            LandTileHeap.AddMultiple(4, TileType.Lumber);
-            LandTileHeap.AddMultiple(4, TileType.Wool);
-            LandTileHeap.Add(new Tile(TileType.Desert));
+            LandTileHeap.Add(3, TileType.Ore);
+            LandTileHeap.Add(3, TileType.Brick);
+            LandTileHeap.Add(4, TileType.Grain);
+            LandTileHeap.Add(4, TileType.Lumber);
+            LandTileHeap.Add(4, TileType.Wool);
+            LandTileHeap.Add(1, TileType.Desert);
 
             Board.Tiles.Add(new Tile(TileType.Water, 0));
             List<Tile> allTiles = new List<Tile>();
@@ -38,9 +38,6 @@ namespace catan
             }
             while(allTiles.Count < 38)
                 allTiles.Add(new Tile(TileType.Water, 0));
-
-
-
 
 
             List<Structure> allStructures = new List<Structure>();
